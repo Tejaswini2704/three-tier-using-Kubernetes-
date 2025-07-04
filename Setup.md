@@ -1,11 +1,11 @@
-# 🖥️ 1. Launch EC2 Instance
+# 🖥️  Launch EC2 Instance
 - launch an Ubuntu instance.
 - name it as ``EKS-main``
-# ☸️ 2. Create EKS Cluster
+# ☸️  Create EKS Cluster
 - Create EKS cluster
 - Wait 15–20 minutes for the cluster to become active.
 - Ensure the worker nodes are created.
-# 🛢️ 3. Create RDS (MariaDB) Database
+# 🛢️  Create RDS (MariaDB) Database
 - go to EC2, you will see two  eks worker node (instances)
 - name one of them as database.
 - edit security group -> allow all traffic
@@ -20,7 +20,7 @@
 - Connectivity: Connect to an EC2 compute resource
 - EC2 instance: choose the database instance
 - create Database.
-# 4. Connect to Worker Node and Setup DB
+# 🔌 Connect to Worker Node and Setup DB
 - SSH into one of the EKS worker nodes.(database instance)
 - cheack the OS
 ```
@@ -76,14 +76,14 @@ show tables;
 ```
 exit
 ```
-# 🔐 5. Update Security Group for EKS Cluster
+# 🔐  Update Security Group for EKS Cluster
 - Go to EKS cluster's Security Group.
 - Remove existing inbound rules.
 - Add new inbound rule:
    - Type: All Traffic
    - 
    - Source: 0.0.0.0/0
-# 📥 6. Clone the Project on EC2
+# 📥 Clone the Project on EC2
 - back to main server(EKS-main)
 - install git
 ```
@@ -120,7 +120,7 @@ vim context.xml
 ```
 ![Screenshot 2025-07-02 122357](https://github.com/user-attachments/assets/7b99748b-b066-4d90-af00-9fd3557f4afe)
 
-# 🐳 8. Build and Push Backend Docker Image
+# 🐳  Build and Push Backend Docker Image
 - install docker
 ```
 yum install docker
@@ -170,7 +170,7 @@ kubectl apply -f .
 kubectl get svc
 ```
 - cpoy the load balnacer link
-# 🌐 11. Access Backend
+# 🌐  Access Backend
 - Copy the EXTERNAL-IP of backend LoadBalancer.
 - Access: http://<svc-lb-link>:8080/student
 
